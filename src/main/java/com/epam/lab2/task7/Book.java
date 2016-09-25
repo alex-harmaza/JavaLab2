@@ -99,12 +99,15 @@ public class Book implements Cloneable, Comparable<Book>{
         if (!author.equals(other.author)){
             return false;
         }
+        if (!isbn.equals(other.isbn)){
+            return false;
+        }
         return true;
     }
 
     @Override
     public int hashCode() {
-        return (title.hashCode() * 17 + author.hashCode()) * 37 + price;
+        return ((title.hashCode() * 17 + author.hashCode()) * 37 + price) * 52 + isbn.hashCode();
     }
 
     @Override
